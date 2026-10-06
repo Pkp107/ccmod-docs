@@ -26,7 +26,7 @@ creates `plugins/my-plugin/plugin.json` and `main.py`.
   "author": "you",
   "description": "What it does, in one sentence.",
   "ccmod": ">=0.1",
-  "capcut": ["8.9", "9.2"],
+  "capcut": ["8.9"],
   "entry": "main.py",
   "provides": ["ui", "tool"],
   "permissions": ["ui", "engine", "files", "tools"]
@@ -38,7 +38,7 @@ creates `plugins/my-plugin/plugin.json` and `main.py`.
 | `id` | lowercase letters, digits, `.`, `_`, `-`; 2 to 63 chars |
 | `version` | semver |
 | `ccmod` | SDK version range your plugin needs |
-| `capcut` | CapCut versions you tested; `["*"]` for any |
+| `capcut` | CapCut versions you tested, as prefixes (`"8.9"`). Effects and transitions are only proven on **8.9.1**; use `["*"]` for UI-only plugins that don't depend on the build |
 | `provides` | any of `effect`, `transition`, `ui`, `theme`, `engine`, `tool`; shown to users |
 | `permissions` | what the plugin may touch; see [permissions](sdk-reference.html#permissions). Undeclared namespaces raise `PermissionError` |
 

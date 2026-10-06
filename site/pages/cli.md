@@ -6,6 +6,19 @@ order: 20
 
 # Command line reference
 
+## Which command do I use?
+
+There are four entry points. Day to day you only need the first.
+
+| I want to... | Use |
+|---|---|
+| Run ccmod with CapCut | `python ccmod_run.py` |
+| Create, check or list **plugins** | `python -m ccmod_sdk ...` |
+| Install, export or import **effects and transitions** | `python scratch/ccfx.py ...` (effects), `python -m ccmod_sdk.transitions ...` (transitions), or the Loader |
+| Script the Loader's actions (themes, covers, install, launch) or read status as JSON | `python ccmod_api.py ...` |
+
+`ccfx.py` lives in `scratch/` for historical reasons; it is the supported effect tool. Everything the Loader does goes through `ccmod_api.py`, so anything you can click you can script.
+
 ## ccmod_run.py: run everything
 
 ```bash

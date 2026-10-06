@@ -8,7 +8,7 @@ order: 5
 
 | Symptom | Fix |
 |---|---|
-| `no export` / `ccmod_invoke` errors | The DLL got reverted to a smaller build. Close CapCut, restore `ccmod_inject.dll.bak2` over `ccmod_inject.dll` |
+| `no export` / `ccmod_invoke` errors | `ccmod_inject.dll` is an older, smaller build. Close CapCut and replace it with the full build (rebuild with `_build_dll.bat`, or copy the full-build backup over it if you made one; the repo author's is `ccmod_inject.dll.bak2`) |
 | CapCut exits right after launch | Normal sometimes; `ccmod_run.py` retries. If it persists, close all CapCut processes in Task Manager and run it again |
 | CapCut hangs or "insufficient disk space" | `%TEMP%` is full of Frida leftovers (~43 MB per attach). Run `python scratch/_clean_frida_tmp.py` |
 | No **ccmod** category in Effects | Effects aren't installed (`python scratch/ccfx.py list`), or the panel was cached. Restart `ccmod_run.py`: it clears CapCut's saved catalog replies |

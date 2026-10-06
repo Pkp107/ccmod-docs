@@ -32,7 +32,7 @@ The full build of `ccmod_inject.dll` exports `ccmod_invoke`. Confirm you have it
 python -c "print(b'ccmod_invoke' in open('ccmod_inject.dll','rb').read())"
 ```
 
-It must print `True`. If not, restore the backup copy (`ccmod_inject.dll.bak2`) with CapCut closed.
+It must print `True`. If not, you have the wrong DLL; see [Troubleshooting](troubleshooting.html).
 
 ## 3. Make sure the right CapCut build is installed
 

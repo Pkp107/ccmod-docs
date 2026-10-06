@@ -104,6 +104,13 @@ def build() -> int:
     assets = HERE / "assets"
     if assets.is_dir():
         shutil.copytree(assets, OUT / "assets")
+    import json
+    idx = []
+    for p in pages:
+        text = re.sub(r"[`#*|>_\-]+", " ", re.sub(r"```.*?```", " ", p["body"], flags=re.S))
+        idx.append({"u": "index.html" if p["slug"] == "index" else p["slug"] + ".html", "t": p["title"], "s": p["section"],
+                    "x": re.sub(r"\s+", " ", text)[:6000]})
+    (OUT / "search.json").write_text(json.dumps(idx), encoding="utf-8")
     (OUT / ".nojekyll").write_text("")
     print(f"built {len(pages)} pages -> {OUT}")
     return len(pages)
@@ -139,10 +146,23 @@ blockquote{{margin:1em 0;padding:.2em 1em;border-left:3px solid var(--acc);backg
 .admonition.warning{{border-color:#d9822b}} .admonition.danger{{border-color:#d9444e}} .admonition-title{{font-weight:700;margin:0 0 .2em}}
 @media (max-width:1000px){{.wrap{{grid-template-columns:200px minmax(0,1fr)}} aside{{display:none}}}}
 @media (max-width:700px){{.wrap{{grid-template-columns:1fr}} nav{{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line)}} main{{padding:20px 16px 60px}}}}
+header input{{margin-left:16px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--fg);width:220px}}
+#res{{position:absolute;top:46px;left:120px;width:min(520px,90vw);background:var(--bg);border:1px solid var(--line);border-radius:8px;display:none;max-height:70vh;overflow:auto;box-shadow:0 8px 30px #0006}}
+#res a{{display:block;margin:0;padding:8px 12px;color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line);font-size:14px}}#res a small{{display:block;color:var(--mut)}}#res a:hover{{background:var(--panel)}}
 </style></head><body>
-<header><b>ccmod</b><span>build your own CapCut</span><a href="https://github.com/Pkp107/capcut-ccmod">GitHub</a></header>
+<header><b>ccmod</b><span>build your own CapCut</span><input id="q" type="search" placeholder="Search docs" autocomplete="off"><div id="res"></div><a href="https://github.com/Pkp107/capcut-ccmod">GitHub</a></header>
 <div class="wrap"><nav>{nav}</nav><main>{body}</main><aside>{toc}</aside></div>
-</body></html>
+<script>
+(function(){{var q=document.getElementById("q"),r=document.getElementById("res"),d=null;
+function load(c){{if(d)return c();fetch("search.json").then(function(x){{return x.json()}}).then(function(j){{d=j;c()}})}}
+q.addEventListener("input",function(){{var t=q.value.trim().toLowerCase();if(!t){{r.style.display="none";return}}
+load(function(){{var w=t.split(/[ ]+/),h=[];d.forEach(function(p){{var hay=(p.t+" "+p.x).toLowerCase(),sc=0;
+for(var i=0;i<w.length;i++){{var k=hay.indexOf(w[i]);if(k<0){{sc=-1;break}}sc+=p.t.toLowerCase().indexOf(w[i])>=0?10:1}}
+if(sc>0){{var k2=hay.indexOf(w[0]),a=Math.max(0,k2-40);h.push([sc,p,(p.x.substr(a,110))])}}}});
+h.sort(function(a,b){{return b[0]-a[0]}});
+r.innerHTML=h.slice(0,8).map(function(e){{return '<a href="'+e[1].u+'">'+e[1].t+'<small>'+e[1].s+' &middot; '+e[2].replace(/</g,"&lt;")+'</small></a>'}}).join("")||'<a>No results</a>';r.style.display="block"}})}});
+document.addEventListener("click",function(e){{if(e.target!==q&&!r.contains(e.target))r.style.display="none"}})}})();
+</script></body></html>
 """
 
 if __name__ == "__main__":
