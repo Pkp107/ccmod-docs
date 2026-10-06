@@ -25,6 +25,7 @@ Every plugin gets `self.ctx`. Each namespace needs its permission in `plugin.jso
 | `tools` | Expose tools to MCP clients and the tool server |
 | `media` | Import files into CapCut's media pool |
 | `process` | Run external programs |
+| `apps` | Run external apps described by JSON specs and import their results |
 
 `python -m ccmod_sdk permissions` prints the same list.
 
@@ -128,6 +129,18 @@ The editor must be open on a project, otherwise the report is `error: no answer 
 | `which(name, extra_dirs=None, env_var=None)` | `str | None` | PATH, then glob patterns in `extra_dirs`, then the environment variable |
 | `run(cmd, timeout=600, cwd=None, env=None)` | `(exit_code, output)` | `cmd` is a list (no shell, no console window). stdout and stderr are combined and only the **last 4000 characters** are returned. Raises `subprocess.TimeoutExpired` on timeout, `FileNotFoundError` if the program doesn't exist |
 | `run_async(cmd, on_done, **kw)` | `None` | `on_done(code, output)` is called from a worker thread; failures arrive as `(-1, "ErrorType: message")` instead of raising |
+
+## ctx.apps  (`apps`)
+
+See [External apps](external-apps.html) for the spec format.
+
+| Call | Returns | Notes |
+|---|---|---|
+| `list()` | `list[dict]` | `{id, name, installed, exe, commands}` for every spec |
+| `find(app_id)` | `str | None` | the executable; `KeyError` for an unknown app |
+| `run(app_id, command, **inputs)` | `dict` | `{ok, code, output, outputs, imported, error?}`; raises `AppError` for bad inputs, `KeyError` for unknown app/command |
+| `register(spec)` | `str` | add a spec at runtime; raises `AppError` if invalid |
+| `expose_tools(app_id=None)` | `list[str]` | register each command as a tool (`tools` permission) |
 
 ## ctx.tools  (`tools`)
 

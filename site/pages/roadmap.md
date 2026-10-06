@@ -18,7 +18,7 @@ The full, category-by-category comparison is on the [After Effects gap analysis]
 | Two-clip transitions | [Making transitions](making-transitions.html) |
 | New buttons, tabs, panels, any QML | `ctx.ui` |
 | Restyle CapCut | [Themes](making-themes.html) |
-| External programs, results imported | [External apps](external-apps.html) |
+| External programs described in JSON, results imported, commands exposed to AI | [External apps](external-apps.html) |
 | AI agents drive CapCut | [MCP](mcp.html) |
 
 ## Needs a tool we haven't built yet

@@ -6,6 +6,54 @@ order: 50
 
 # Using other software from CapCut
 
+## The fast way: describe the app in JSON
+
+You don't need Python to connect a program. Drop a spec in `apps/` and ccmod can find the program, run its commands, import the results into CapCut, and offer every command as an MCP tool. ffmpeg and Blender ship as examples (`apps/ffmpeg.json`, `apps/blender.json`).
+
+```json
+{
+  "id": "ffmpeg",
+  "name": "FFmpeg",
+  "find": { "exe": "ffmpeg", "env": "CCMOD_FFMPEG", "dirs": ["C:/ffmpeg*/bin"] },
+  "commands": {
+    "grayscale": {
+      "description": "Remove the colour from a video.",
+      "args": ["-y", "-i", "{input}", "-vf", "hue=s=0", "{output}"],
+      "inputs":  { "input":  { "type": "file" } },
+      "outputs": { "output": { "ext": ".mp4", "import": true } },
+      "timeout": 1800
+    }
+  }
+}
+```
+
+| Field | Meaning |
+|---|---|
+| `find.exe` / `env` / `dirs` | How to locate the program: the env var wins, then PATH, then the folders (globs allowed, newest match) |
+| `args` | The argument list; **no shell is used**. `{name}` is filled from an input or an output |
+| `inputs` | Each has `type` = `file` (must exist), `number` or `text`, and an optional `default` |
+| `outputs` | Each has an `ext`; ccmod picks the path in your plugin's folder. `"import": true` puts the file in CapCut's media pool |
+| `timeout` | Seconds before the run is abandoned |
+
+Use it from a plugin (permission `apps`; `tools` too if you expose tools):
+
+```python
+res = self.ctx.apps.run("ffmpeg", "grayscale", input="C:/clips/a.mp4")
+# {"ok": True, "code": 0, "output": "...", "outputs": {"output": ".../output_1700.mp4"}, "imported": {"output": "imported 1 via ..."}}
+
+self.ctx.apps.list()                  # every known app: installed?, exe path, commands
+self.ctx.apps.expose_tools()          # every command becomes an MCP tool, e.g. ffmpeg_grayscale
+self.ctx.apps.register({...spec...})  # add a spec at runtime, no file needed
+```
+
+Failure is reported, not hidden: a missing program returns `ok: false` with an install hint, a non-zero exit gives the code and the last 4000 characters of output, and a command that finishes without creating its output file is flagged. Bad inputs raise `AppError`.
+
+Anything with a command line fits: ffmpeg filters, Blender (`render_blend`, or `run_script` with your own bpy script), Natron, ImageMagick, Real-ESRGAN, Whisper, Krita scripts.
+
+## The Python way
+
+For logic a template can't express, call the lower-level APIs yourself.
+
 ccmod doesn't try to rebuild Blender or ffmpeg inside CapCut. A plugin **runs the program, takes its output, and imports it into CapCut's media pool**. That gives you 3D, ML tools, audio analysis, anything with a command line.
 
 Two APIs do the work (permissions `process` and `media`):
