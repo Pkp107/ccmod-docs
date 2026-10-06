@@ -1,6 +1,6 @@
 ---
 title: Using effects & transitions
-section: Using CCMOD
+section: Using ccmod
 order: 20
 ---
 
@@ -42,11 +42,11 @@ After installing, restart `ccmod_run.py` (or press the Loader's refresh) so the 
 
 ## Using them in CapCut
 
-1. **Effects** (or **Transitions**) tab, then the **CCMOD** category.
+1. **Effects** (or **Transitions**) tab, then the **ccmod** category.
 2. Drag a tile onto a clip (or between two clips for transitions).
 3. Use the slider in the right-hand panel.
 
-Each tile keeps a real CapCut id behind the scenes (CapCut drops tiles with unknown ids). CCMOD pins which stock tile each of your effects borrows (`pins.json`), so the assignment is stable between launches.
+Each tile keeps a real CapCut id behind the scenes (CapCut drops tiles with unknown ids). ccmod pins which stock tile each of your effects borrows (`pins.json`), so the assignment is stable between launches.
 
 ## Sharing effects
 

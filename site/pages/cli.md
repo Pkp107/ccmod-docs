@@ -9,7 +9,7 @@ order: 20
 ## ccmod_run.py: run everything
 
 ```bash
-python ccmod_run.py              # launch CapCut with CCMOD, run until Ctrl+C
+python ccmod_run.py              # launch CapCut with ccmod, run until Ctrl+C
 python ccmod_run.py autostart    # start with Windows
 ```
 
@@ -44,7 +44,7 @@ python -m ccmod_sdk.transitions install | list
 ```bash
 python ccversion.py                    # installed CapCut builds + which one is chosen
 python ccversion.py --json
-python ccversion.py backup 8.9.1       # mirror the build (1.6 GB) to CCMOD-Backups
+python ccversion.py backup 8.9.1       # mirror the build (1.6 GB) to ccmod-Backups
 python ccversion.py restore 8.9.1      # put it back if an auto-update removed it
 ```
 

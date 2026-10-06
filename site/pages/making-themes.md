@@ -62,7 +62,7 @@ A rule picks UI items and sets properties on them.
 
 ## Find things to restyle
 
-With CapCut and CCMOD running:
+With CapCut and ccmod running:
 
 ```python
 ctx.ui.inspect(type="QQuickRectangle", limit=40)

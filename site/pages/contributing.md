@@ -11,7 +11,7 @@ Contributions that improve reliability, add effects/transitions/themes/plugins, 
 ## Ground rules
 
 1. **Additive only.** No change touching the watermark, Pro unlocks, accounts, licensing or payment. Such PRs are rejected. See [Safety rules](safety.html).
-2. **No proprietary content.** Don't commit CapCut/ByteDance code, shaders, resource packages, databases or cache dumps. Only original CCMOD code and your own effects.
+2. **No proprietary content.** Don't commit CapCut/ByteDance code, shaders, resource packages, databases or cache dumps. Only original ccmod code and your own effects.
 3. **No large binaries or session artifacts.** Keep screenshots, videos and dumps out of git.
 
 ## Workflow
@@ -30,7 +30,7 @@ This site is built from `site/pages/*.md` by `site/build.py` (Python `markdown`,
 ```
 ---
 title: Page title
-section: Getting started | Using CCMOD | Building | Reference | Project
+section: Getting started | Using ccmod | Building | Reference | Project
 order: 10
 ---
 ```

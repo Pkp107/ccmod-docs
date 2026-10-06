@@ -10,10 +10,10 @@ order: 10
 
 | Need | Details |
 |---|---|
-| Windows 10/11 | CCMOD injects into the Windows build of CapCut Desktop |
-| CapCut **8.9.1.3802** | Newer builds currently render our shader packages as passthrough. CCMOD can keep and launch the pinned build for you (see below) |
+| Windows 10/11 | ccmod injects into the Windows build of CapCut Desktop |
+| CapCut **8.9.1.3802** | Newer builds currently render our shader packages as passthrough. ccmod can keep and launch the pinned build for you (see below) |
 | Python 3.10+ | `python --version` |
-| Frida | `pip install frida frida-tools`, the injector CCMOD uses to attach to CapCut |
+| Frida | `pip install frida frida-tools`, the injector ccmod uses to attach to CapCut |
 | .NET 8 SDK (optional) | only to build the Loader app yourself |
 
 ## 1. Get the code
@@ -42,10 +42,10 @@ CapCut auto-updates, and builds after 8.9.1 break our effect packages. Check wha
 python ccversion.py
 ```
 
-It lists installed builds under `%LOCALAPPDATA%\CapCut\Apps\` and which one CCMOD will launch. `ccmod_run.py` also restores the pinned build from CCMOD's backup if an auto-update removed it. Always start CapCut through CCMOD, never the auto-updating stub.
+It lists installed builds under `%LOCALAPPDATA%\CapCut\Apps\` and which one ccmod will launch. `ccmod_run.py` also restores the pinned build from ccmod's backup if an auto-update removed it. Always start CapCut through ccmod, never the auto-updating stub.
 
 !!! note "Sign-in"
-    CapCut may show a subscription or sign-in interstitial when opening a project. That is CapCut's own behaviour and CCMOD does not touch it.
+    CapCut may show a subscription or sign-in interstitial when opening a project. That is CapCut's own behaviour and ccmod does not touch it.
 
 ## 4. Run it
 
@@ -61,13 +61,13 @@ This one command:
 4. launches CapCut (retrying, because a launch right after a close often exits),
 5. attaches the SDK to the live editor and keeps running: every time an editor opens, plugins get `on_editor_open`.
 
-Leave the terminal open. `Ctrl+C` stops CCMOD (CapCut stays open but loses the CCMOD extras at next launch).
+Leave the terminal open. `Ctrl+C` stops ccmod (CapCut stays open but loses the ccmod extras at next launch).
 
-To start CCMOD with Windows: `python ccmod_run.py autostart`.
+To start ccmod with Windows: `python ccmod_run.py autostart`.
 
 ## 5. Install some effects
 
-CCMOD ships a library of effects and transitions. Install them once:
+ccmod ships a library of effects and transitions. Install them once:
 
 ```bash
 python scratch/ccfx.py install easedown easegraph chromatic vignette pixelate duotone mirror scanlines shake pulse wave strobe rgbdrift

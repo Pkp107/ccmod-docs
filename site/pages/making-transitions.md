@@ -6,11 +6,11 @@ order: 30
 
 # Making transitions
 
-Transitions are **fundamentally different from effects**: a transition shader sees **two clips** (the outgoing and the incoming) and a `progress` value that runs 0 to 1 across the cut. CCMOD builds each transition as a clone of a cached CapCut transition package with your fragment shader swapped in, under a fabricated id.
+Transitions are **fundamentally different from effects**: a transition shader sees **two clips** (the outgoing and the incoming) and a `progress` value that runs 0 to 1 across the cut. ccmod builds each transition as a clone of a cached CapCut transition package with your fragment shader swapped in, under a fabricated id.
 
 ## The shader contract
 
-You write the body that sets `c`. CCMOD provides this prelude:
+You write the body that sets `c`. ccmod provides this prelude:
 
 | Name | Meaning |
 |---|---|

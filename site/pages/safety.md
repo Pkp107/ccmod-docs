@@ -8,18 +8,18 @@ order: 20
 
 ## The one hard rule
 
-**CCMOD only adds.** It never touches:
+**ccmod only adds.** It never touches:
 
 - the watermark,
 - Pro / subscription features,
 - accounts,
 - licensing or payment.
 
-The SDK has no API for any of these and none will be added. A plugin that ships such changes is not accepted. CCMOD reads CapCut's free/paid flag on stock tiles only to choose which free tile to borrow, and never writes it.
+The SDK has no API for any of these and none will be added. A plugin that ships such changes is not accepted. ccmod reads CapCut's free/paid flag on stock tiles only to choose which free tile to borrow, and never writes it.
 
 ## Disclaimer
 
-CCMOD is independent and unofficial, not affiliated with, endorsed by, or connected to CapCut, ByteDance or Bytedance Pte. Ltd. It is a reverse-engineering research project for educational purposes. It injects into a running process, which may violate CapCut's Terms of Service. Use it only on software you own, at your own risk. No warranty.
+ccmod is independent and unofficial, not affiliated with, endorsed by, or connected to CapCut, ByteDance or Bytedance Pte. Ltd. It is a reverse-engineering research project for educational purposes. It injects into a running process, which may violate CapCut's Terms of Service. Use it only on software you own, at your own risk. No warranty.
 
 ## Practical safety
 

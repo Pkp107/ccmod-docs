@@ -52,7 +52,7 @@ from ccmod_sdk import Plugin
 
 class MyPlugin(Plugin):
     def on_load(self):
-        # runs once when CCMOD loads the plugin (CapCut may not be open yet)
+        # runs once when ccmod loads the plugin (CapCut may not be open yet)
         self.count = self.ctx.storage.read_json("state.json", {"clicks": 0})["clicks"]
         self.ctx.tools.register(
             "where_am_i", "Report the playhead position in seconds.", self.where,
@@ -88,7 +88,7 @@ Click the button; the label shows the playhead, and an MCP client now has a `my-
 | Hook | When |
 |---|---|
 | `on_load()` | Plugin loaded |
-| `on_unload()` | CCMOD shutting down or the plugin disabled; clean up here |
+| `on_unload()` | ccmod shutting down or the plugin disabled; clean up here |
 | `on_capcut_start()` | CapCut's process was found |
 | `on_editor_open()` | An editor window appeared (the UI exists; inject QML here) |
 | `on_project_open(project)` | A project opened |
@@ -105,7 +105,7 @@ host.load_all()
 host.plugins["my-plugin"].ctx.engine.playhead_seconds()
 ```
 
-`FakeBackend` records every call (`backend.calls`) and keeps in-memory properties. Most of CCMOD's own tests work this way.
+`FakeBackend` records every call (`backend.calls`) and keeps in-memory properties. Most of ccmod's own tests work this way.
 
 ## Raw QML (when a button isn't enough)
 

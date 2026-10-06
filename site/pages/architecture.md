@@ -4,9 +4,9 @@ section: Reference
 order: 30
 ---
 
-# How CCMOD works
+# How ccmod works
 
-CapCut Desktop is a Qt6/QML application with a Chromium network stack (Cronet) and an ANGLE/GLES renderer. CCMOD changes **none of CapCut's program files**. It works by runtime injection and a local helper.
+CapCut Desktop is a Qt6/QML application with a Chromium network stack (Cronet) and an ANGLE/GLES renderer. ccmod changes **none of CapCut's program files**. It works by runtime injection and a local helper.
 
 ```
  ccmod_run.py ──► launches pinned CapCut ──► Frida attaches
@@ -17,7 +17,7 @@ CapCut Desktop is a Qt6/QML application with a Chromium network stack (Cronet) a
       │                                         │  inject QML into the live scene
       ▼
  local catalog proxy ◄── CapCut's panel requests (Effects / Transitions)
-      │  rewrites the real default category into "CCMOD"
+      │  rewrites the real default category into "ccmod"
       ▼
  package cache  %LOCALAPPDATA%\CapCut\User Data\Cache\effect\<id>\<md5>\   (our shader packages)
 ```
@@ -26,12 +26,12 @@ CapCut Desktop is a Qt6/QML application with a Chromium network stack (Cronet) a
 
 1. **Qt metaobject injection.** A small DLL inside CapCut lists CapCut's live view-models and lets us call their methods, read/write properties, and inject QML. This powers buttons, tabs, themes, seek, media import.
 2. **Donorless effect packages.** A fabricated effect id plus a local package (shader, config, slider declaration) that CapCut resolves and renders. No donor effect, no catalog entry, no download.
-3. **The catalog proxy.** CapCut asks a server which tiles to show in a panel. A local proxy answers: it renames the real default category to **CCMOD** and fills it with real stock tiles whose ids are kept but whose titles, covers and package hashes are ours. Our package is installed under each borrowed id, so a native drag applies *our* effect.
+3. **The catalog proxy.** CapCut asks a server which tiles to show in a panel. A local proxy answers: it renames the real default category to **ccmod** and fills it with real stock tiles whose ids are kept but whose titles, covers and package hashes are ours. Our package is installed under each borrowed id, so a native drag applies *our* effect.
 4. **Project drafts.** A project is JSON; effects can be written directly (with backups) when a live route isn't needed.
 
 ## Why borrowed ids
 
-CapCut drops tiles whose ids it doesn't recognise. So each CCMOD tile keeps a real id (preferring tiles that are *free*, so your tiles never carry a Pro badge), and the proxy pins the assignment (`pins.json`) so it's stable even though CapCut re-ranks its lists on each request. CCMOD only *reads* whether a stock tile is free to choose which to borrow; it never edits any licensing or subscription data.
+CapCut drops tiles whose ids it doesn't recognise. So each ccmod tile keeps a real id (preferring tiles that are *free*, so your tiles never carry a Pro badge), and the proxy pins the assignment (`pins.json`) so it's stable even though CapCut re-ranks its lists on each request. ccmod only *reads* whether a stock tile is free to choose which to borrow; it never edits any licensing or subscription data.
 
 ## Effects vs transitions
 

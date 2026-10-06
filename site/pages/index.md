@@ -4,29 +4,29 @@ section: Getting started
 order: 0
 ---
 
-# CCMOD
+# ccmod
 
-**CCMOD is a plugin platform for CapCut Desktop.** It runs next to CapCut on your PC and lets you add what CapCut doesn't have:
+**ccmod is a plugin platform for CapCut Desktop.** It runs next to CapCut on your PC and lets you add what CapCut doesn't have:
 
-- **Your own effects and transitions**, written in GLSL, that show up in CapCut's *real* Effects and Transitions panels (a **CCMOD** category) and drag onto the timeline like any stock effect.
+- **Your own effects and transitions**, written in GLSL, that show up in CapCut's *real* Effects and Transitions panels (a **ccmod** category) and drag onto the timeline like any stock effect.
 - **New buttons, tabs and panels** anywhere in the editor, whose clicks run your Python code.
 - **Themes** that recolour and restyle the whole CapCut UI, live and reversible.
 - **Tools** that AI agents can call through **MCP**, and that your own plugins can expose.
 - **External apps**: hand work to Blender, ffmpeg or any program, then import the result straight into CapCut's media pool.
 
 !!! warning "Unofficial, research-grade"
-    CCMOD is independent and not affiliated with CapCut or ByteDance. It injects into a running CapCut process, which may violate CapCut's terms. Use it at your own risk, on software you own. It currently targets **CapCut 8.9.1.3802** on Windows.
+    ccmod is independent and not affiliated with CapCut or ByteDance. It injects into a running CapCut process, which may violate CapCut's terms. Use it at your own risk, on software you own. It currently targets **CapCut 8.9.1.3802** on Windows.
 
 !!! danger "Additive only"
-    CCMOD never touches the watermark, Pro/subscription features, accounts, licensing or payment, and the SDK has no API for any of them. Plugins that try are not accepted. See [Safety rules](safety.html).
+    ccmod never touches the watermark, Pro/subscription features, accounts, licensing or payment, and the SDK has no API for any of them. Plugins that try are not accepted. See [Safety rules](safety.html).
 
 ## Start here
 
 | I want to... | Read |
 |---|---|
-| Install CCMOD and open CapCut with it | [Install](install.html), then [Quick start](quickstart.html) |
+| Install ccmod and open CapCut with it | [Install](install.html), then [Quick start](quickstart.html) |
 | Use the Loader app | [The Loader](loader.html) |
-| Use the effects and transitions that ship with CCMOD | [Using effects & transitions](using-effects.html) |
+| Use the effects and transitions that ship with ccmod | [Using effects & transitions](using-effects.html) |
 | Change how CapCut looks | [Themes](themes.html) |
 | Let Claude or another AI drive CapCut | [MCP](mcp.html) |
 | Write my first plugin | [Your first plugin](first-plugin.html) |

@@ -6,11 +6,11 @@ order: 20
 
 # Making effects
 
-A CCMOD effect is a **fragment shader** (GLSL) plus a slider label. CCMOD wraps it in a CapCut effect package under a fabricated id, so it needs no donor effect and no download, and it appears in the CCMOD grid.
+A ccmod effect is a **fragment shader** (GLSL) plus a slider label. ccmod wraps it in a CapCut effect package under a fabricated id, so it needs no donor effect and no download, and it appears in the ccmod grid.
 
 ## The shader contract
 
-You write only `main()`. CCMOD supplies the rest of the program around it. Available names:
+You write only `main()`. ccmod supplies the rest of the program around it. Available names:
 
 | Name | Type | Meaning |
 |---|---|---|
@@ -82,11 +82,11 @@ with zipfile.ZipFile("myvignette.ccpack", "w", zipfile.ZIP_DEFLATED) as z:
 python scratch/ccfx.py installpack myvignette.ccpack
 ```
 
-or Loader, Effects page, Import. Then restart `ccmod_run.py` so the grid picks it up. It appears in **Effects > CCMOD**.
+or Loader, Effects page, Import. Then restart `ccmod_run.py` so the grid picks it up. It appears in **Effects > ccmod**.
 
 ## Built-in library route (for contributors)
 
-Effects in `scratch/ccfx.py`'s `LIBRARY` dict ship with CCMOD:
+Effects in `scratch/ccfx.py`'s `LIBRARY` dict ship with ccmod:
 
 ```python
 "myvignette": {"slider": "Strength", "desc": "Darkened edges", "main": """void main() { ... }"""},
@@ -96,7 +96,7 @@ Effects in `scratch/ccfx.py`'s `LIBRARY` dict ship with CCMOD:
 
 ## Covers
 
-Each tile gets a generated cover in the CCMOD assets folder. Replace `<name>.png` with your own picture (it is never overwritten), or use the Loader's cover button.
+Each tile gets a generated cover in the ccmod assets folder. Replace `<name>.png` with your own picture (it is never overwritten), or use the Loader's cover button.
 
 ## Debugging
 

@@ -1,17 +1,17 @@
 ---
 title: The Loader
-section: Using CCMOD
+section: Using ccmod
 order: 10
 ---
 
 # The Loader
 
-`CCMODLoader.exe` is CCMOD's desktop app. It is a front end over the same Python tools you can run by hand, so everything it does you can also script.
+`CCMODLoader.exe` is ccmod's desktop app. It is a front end over the same Python tools you can run by hand, so everything it does you can also script.
 
 | Page | What it does |
 |---|---|
-| **Launch** | Start or stop CapCut with CCMOD attached. Shows whether CapCut/CCMOD are running and which build will launch. |
-| **Builds** | The CapCut builds on this PC, which one CCMOD prefers, and whether it is the pinned build. |
+| **Launch** | Start or stop CapCut with ccmod attached. Shows whether CapCut/ccmod are running and which build will launch. |
+| **Builds** | The CapCut builds on this PC, which one ccmod prefers, and whether it is the pinned build. |
 | **Plugins** | Every plugin in `plugins/` with its permissions. Toggle on/off. Skipped plugins show *why* (bad manifest, wrong CapCut version). |
 | **Effects** | The effect and transition library with covers. **Install / Uninstall**, **set a custom cover image** per tile, **import** a `.ccpack` someone shared, **export** your own. |
 | **Themes** | Pick a CapCut theme (applies live while CapCut is open, and is remembered for next launches), or **Revert** to CapCut's own look. |
@@ -44,4 +44,4 @@ So a script, a plugin or an AI agent can do anything the Loader can. The [MCP se
 
 ## Custom covers
 
-Each tile's cover is a PNG in the CCMOD assets folder (`<key>.png`). CCMOD writes defaults once and **never overwrites your edits**. Use the Loader's cover button, or drop your own PNG over the file.
+Each tile's cover is a PNG in the ccmod assets folder (`<key>.png`). ccmod writes defaults once and **never overwrites your edits**. Use the Loader's cover button, or drop your own PNG over the file.

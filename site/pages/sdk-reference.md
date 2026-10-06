@@ -16,7 +16,7 @@ Every plugin gets `self.ctx`. Each namespace needs its permission in `plugin.jso
 | `engine` | Call CapCut controllers, seek the playhead, read engine state |
 | `render` | Rewrite shaders / hook the render pipeline |
 | `draft` | Read and modify project drafts (with DraftGuard backups) |
-| `effects` | Install, list and apply CCMOD effects and packs |
+| `effects` | Install, list and apply ccmod effects and packs |
 | `network` | Redirect CapCut's network requests / serve catalog rules locally |
 | `files` | Read/write inside the plugin's own data folder |
 | `builds` | Inspect installed CapCut builds |
@@ -77,7 +77,7 @@ Button placement: `x`/`y` position the button inside the parent; the default row
 | `library()` | Names of the built-in effect library |
 | `installed()` | Installed donorless effects as tile dicts |
 | `install(name)` | Build an effect package from the library |
-| `grid_items()` / `transition_items()` | Installed effects / transitions as CCMOD grid items |
+| `grid_items()` / `transition_items()` | Installed effects / transitions as ccmod grid items |
 | `install_borrowed(state_dir)` | Place packages under the stock ids the grid borrowed |
 | `apply(project, name)` | Write the effect into a project's draft |
 | `set_param(key, value)` | Drive the selected effect's slider live (no reload) |
@@ -86,7 +86,7 @@ Button placement: `x`/`y` position the button inside the parent; the default row
 
 | Call | Meaning |
 |---|---|
-| `set_grid(items, name="CCMOD", extras_name="CCMOD Extras", main_count=8, transitions=None)` | Publish the CCMOD category for effects (and transitions) |
+| `set_grid(items, name="ccmod", extras_name="ccmod Extras", main_count=8, transitions=None)` | Publish the ccmod category for effects (and transitions) |
 | `add_category(category_id, name, position=0, key=None)`, `add_tiles(items, effect_type=7, mode="append")`, `serve_category(category_id, items, effect_type=7)` | Lower-level catalog rules |
 | `redirect(pattern, local_file)` / `rules()` / `clear()` | Answer CapCut's requests from local files (experimental) |
 | `catalog_state_dir` | Where the proxy records borrowed ids |

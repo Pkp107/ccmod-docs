@@ -1,12 +1,12 @@
 ---
 title: Themes
-section: Using CCMOD
+section: Using ccmod
 order: 30
 ---
 
 # Themes
 
-A CCMOD theme restyles **CapCut itself**, not the Loader: panel colours, accent colour, corner radii, and (with rules) visibility and other properties of individual UI items. It applies live, can be reverted instantly, and is remembered for your next launches.
+A ccmod theme restyles **CapCut itself**, not the Loader: panel colours, accent colour, corner radii, and (with rules) visibility and other properties of individual UI items. It applies live, can be reverted instantly, and is remembered for your next launches.
 
 ## Bundled themes
 
@@ -29,7 +29,7 @@ The `ccmod-themes` plugin re-applies your saved theme every time an editor opens
 
 ## How it works
 
-CCMOD injects one small QML object, the *theme engine*, into the editor. A theme is pushed in as JSON. The engine walks CapCut's live UI tree and, for every item whose colour you mapped (or that matches a rule), installs a QML `Binding` with `restoreMode: RestoreBindingOrValue`. Reverting switches the bindings off and CapCut's own values return. The tree is rescanned every 2 seconds so panels that open later are themed too.
+ccmod injects one small QML object, the *theme engine*, into the editor. A theme is pushed in as JSON. The engine walks CapCut's live UI tree and, for every item whose colour you mapped (or that matches a rule), installs a QML `Binding` with `restoreMode: RestoreBindingOrValue`. Reverting switches the bindings off and CapCut's own values return. The tree is rescanned every 2 seconds so panels that open later are themed too.
 
 Build your own: [Making themes](making-themes.html).
 

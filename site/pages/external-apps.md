@@ -6,7 +6,7 @@ order: 50
 
 # Using other software from CapCut
 
-CCMOD doesn't try to rebuild Blender or ffmpeg inside CapCut. A plugin **runs the program, takes its output, and imports it into CapCut's media pool**. That gives you 3D, ML tools, audio analysis, anything with a command line.
+ccmod doesn't try to rebuild Blender or ffmpeg inside CapCut. A plugin **runs the program, takes its output, and imports it into CapCut's media pool**. That gives you 3D, ML tools, audio analysis, anything with a command line.
 
 Two APIs do the work (permissions `process` and `media`):
 

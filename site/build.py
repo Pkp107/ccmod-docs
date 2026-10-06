@@ -1,4 +1,4 @@
-"""Build the CCMOD documentation site: site/pages/*.md -> site/_out/*.html (static, no JS framework).
+"""Build the ccmod documentation site: site/pages/*.md -> site/_out/*.html (static, no JS framework).
 
     python site/build.py            # build into site/_out
     python site/build.py --serve    # build, then serve on http://127.0.0.1:8700
@@ -23,7 +23,7 @@ import markdown
 HERE = Path(__file__).resolve().parent
 PAGES = HERE / "pages"
 OUT = HERE / "_out"
-SECTIONS = ["Getting started", "Using CCMOD", "Building", "Reference", "Project"]
+SECTIONS = ["Getting started", "Using ccmod", "Building", "Reference", "Project"]
 
 
 def parse(path: Path) -> dict:
@@ -71,7 +71,7 @@ def nav_html(pages: list[dict], current: str) -> str:
 def page_html(p: dict, pages: list[dict]) -> str:
     body, toc = render(p["body"])
     toc_html = "".join(f'<a class="l{lvl}" href="#{i}">{html.escape(n)}</a>' for i, n, lvl in toc if lvl <= 3)
-    title = "CCMOD" if p["slug"] == "index" else f'{p["title"]} · CCMOD'
+    title = "ccmod" if p["slug"] == "index" else f'{p["title"]} · ccmod'
     return TEMPLATE.format(title=html.escape(title), nav=nav_html(pages, p["slug"]), body=body,
                            toc=f'<div class="tocbox"><div class="tochead">On this page</div>{toc_html}</div>' if len(toc) > 2 else "")
 
@@ -90,7 +90,7 @@ def imported() -> list[dict]:
     for fn, (slug, title, section, order) in IMPORTED.items():
         f = HERE.parent / "docs" / "reference" / fn
         if f.exists():
-            out.append({"slug": slug, "title": title, "section": section, "order": order, "body": f.read_text(encoding="utf-8")})
+            out.append({"slug": slug, "title": title, "section": section, "order": order, "body": re.sub(r"(?<![A-Za-z_])CCMOD(?![A-Za-z_])", "ccmod", f.read_text(encoding="utf-8"))})
     return out
 
 
@@ -140,7 +140,7 @@ blockquote{{margin:1em 0;padding:.2em 1em;border-left:3px solid var(--acc);backg
 @media (max-width:1000px){{.wrap{{grid-template-columns:200px minmax(0,1fr)}} aside{{display:none}}}}
 @media (max-width:700px){{.wrap{{grid-template-columns:1fr}} nav{{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line)}} main{{padding:20px 16px 60px}}}}
 </style></head><body>
-<header><b>CCMOD</b><span>build your own CapCut</span><a href="https://github.com/Pkp107/capcut-ccmod">GitHub</a></header>
+<header><b>ccmod</b><span>build your own CapCut</span><a href="https://github.com/Pkp107/capcut-ccmod">GitHub</a></header>
 <div class="wrap"><nav>{nav}</nav><main>{body}</main><aside>{toc}</aside></div>
 </body></html>
 """

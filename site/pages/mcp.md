@@ -1,6 +1,6 @@
 ---
 title: MCP & AI agents
-section: Using CCMOD
+section: Using ccmod
 order: 40
 ---
 
@@ -23,16 +23,16 @@ Restart the client; the tools appear as `ccmod_*`.
 
 | Tool | What it does |
 |---|---|
-| `ccmod_status` | Is CapCut running and CCMOD attached |
+| `ccmod_status` | Is CapCut running and ccmod attached |
 | `ccmod_library` | Effects and transitions (installed or not) with cover paths |
 | `ccmod_install` `{kind, key}` | Install an effect or transition (`kind` = `effect` or `transition`) |
 | `ccmod_uninstall` `{kind, key}` | Remove one |
 | `ccmod_set_cover` `{cover_key, image_path}` | Use an image as a tile cover |
 | `ccmod_themes` | List themes + current |
 | `ccmod_theme_apply` `{id}` / `ccmod_theme_revert` | Restyle CapCut / go back |
-| `ccmod_launch` / `ccmod_stop` | Start CapCut with CCMOD (about a minute) / close it |
+| `ccmod_launch` / `ccmod_stop` | Start CapCut with ccmod (about a minute) / close it |
 
-## Live tools (CapCut + CCMOD running)
+## Live tools (CapCut + ccmod running)
 
 When `ccmod_run.py` is running it starts a **tool server** on `127.0.0.1` (random port, token in `plugin-state/toolserver.json`). The MCP server forwards to it, so you also get:
 
@@ -61,8 +61,8 @@ Requires the `tools` permission. The tool is listed to every MCP client automati
 
 ```bash
 # token and port are in plugin-state/toolserver.json
-curl -H "X-CCMOD-Token: <token>" http://127.0.0.1:<port>/tools
-curl -H "X-CCMOD-Token: <token>" -d '{"name":"ccmod.seek","arguments":{"seconds":12.5}}' http://127.0.0.1:<port>/call
+curl -H "X-ccmod-Token: <token>" http://127.0.0.1:<port>/tools
+curl -H "X-ccmod-Token: <token>" -d '{"name":"ccmod.seek","arguments":{"seconds":12.5}}' http://127.0.0.1:<port>/call
 ```
 
 Local only: bound to `127.0.0.1`, every request needs the token, and the token file is readable only by your Windows user.
