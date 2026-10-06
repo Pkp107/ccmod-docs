@@ -52,6 +52,16 @@ python scratch/ccfx.py apply <project> <name>         # write into a project's f
 python -m ccmod_sdk.transitions install | list
 ```
 
+## Creator
+
+```bash
+python -m ccmod_sdk.creator blocks                          # every block, range and default (JSON)
+python -m ccmod_sdk.creator effect recipe.json [--install]
+python -m ccmod_sdk.creator transition recipe.json [--install]
+python ccmod_api.py create effect|transition recipe.json
+python ccmod_api.py blocks
+```
+
 ## Builds and projects
 
 ```bash

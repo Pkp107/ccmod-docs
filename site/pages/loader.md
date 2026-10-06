@@ -8,6 +8,8 @@ order: 10
 
 `ccmodloader.exe` is ccmod's desktop app. It is a front end over the same Python tools you can run by hand, so everything it does you can also script.
 
+![The Launch page](assets/loader-launch.png)
+
 | Page | What it does |
 |---|---|
 | **Launch** | Start or stop CapCut with ccmod attached. Shows whether CapCut/ccmod are running and which build will launch. |
@@ -17,6 +19,14 @@ order: 10
 | **Themes** | Pick a CapCut theme (applies live while CapCut is open, and is remembered for next launches), or **Revert** to CapCut's own look. |
 | **Projects** | CapCut drafts and their format numbers (the Loader guards drafts from format bumps, with backups). |
 | **General / About** | Paths, links, version. |
+
+### Effects page
+
+![The Effects page](assets/loader-effects.png)
+
+### Plugins page
+
+![The Plugins page](assets/loader-plugins.png)
 
 ## How it talks to Python
 

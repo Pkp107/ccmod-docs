@@ -21,6 +21,22 @@ The full, category-by-category comparison is on the [After Effects gap analysis]
 | External programs described in JSON, results imported, commands exposed to AI | [External apps](external-apps.html) |
 | AI agents drive CapCut | [MCP](mcp.html) |
 
+## Built since this page was first written
+
+| Tool | Where | Status |
+|---|---|---|
+| External app framework (JSON specs, import, MCP tools) | [External apps](external-apps.html) | built, tested with stand-in programs |
+| Timeline API (clips, keyframes, split, trim, move) | [Timeline API](timeline-api.html) | built; real drafts round-trip; not yet opened in CapCut after an edit |
+| Multi-pass effects (glow, bloom, soft focus) | [Making effects](making-effects.html#multi-pass-effects-blur-glow-bloom) | built; render not yet seen on screen |
+| Creator (effects and transitions from blocks, AI-callable) | [Creator](creator.html) | built; Loader visual editor not built |
+| Expression engine (formulas baked to keyframes) | [Expressions](expressions.html) | built and tested |
+| Render agent (uniforms, frame history, live textures) | [Render agent](render-agent.html) | uniforms use a proven technique; history and feed are experimental |
+| UI toolkit (panels with sliders, toggles, dropdowns) | [UI toolkit](ui-toolkit.html) | built; compiled and clicked in Qt 6; not yet seen inside CapCut |
+
+## Still needed, in this order
+
+Live (not draft-file) timeline edits; a visual creator and a node-based shader graph in the Loader; docked panels, tabs and saved workspaces; an audio bridge; a third shader pass; a ReShade/Shadertoy importer.
+
 ## Needs a tool we haven't built yet
 
 | Missing tool | Unlocks | Route letter |

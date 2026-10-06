@@ -18,6 +18,8 @@ A ccmod theme restyles **CapCut itself**, not the Loader: panel colours, accent 
 | Aurora | Dark teal/green |
 | Studio | Neutral dark, high contrast |
 
+![The Themes page in the Loader](assets/loader-themes.png)
+
 ## Applying
 
 - **Loader**: Themes page, pick a card; **Revert** goes back to stock.

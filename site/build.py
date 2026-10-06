@@ -118,14 +118,14 @@ def build() -> int:
 
 TEMPLATE = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title}</title>
+<title>{title}</title><link rel="icon" href="assets/logo.png">
 <style>
 :root{{--bg:#fbfbfc;--panel:#f1f2f4;--fg:#1d2024;--mut:#5d6570;--line:#dfe2e6;--acc:#0a8fa0;--code:#eceef1;--codefg:#1d2024}}
 @media (prefers-color-scheme:dark){{:root{{--bg:#17181a;--panel:#1f2124;--fg:#e4e6e9;--mut:#9aa1aa;--line:#2f3236;--acc:#7fd6e8;--code:#101113;--codefg:#dfe3e8}}}}
 *{{box-sizing:border-box}}
 body{{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}}
 header{{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 20px;display:flex;align-items:center;gap:14px}}
-header b{{font-size:18px;letter-spacing:.5px}} header span{{color:var(--mut);font-size:14px}}
+img{{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px}}header img.logo{{width:28px;height:28px;border:0;border-radius:50%}}header b{{font-size:18px;letter-spacing:.5px}} header span{{color:var(--mut);font-size:14px}}
 header a{{margin-left:auto;color:var(--acc);text-decoration:none;font-size:14px}}
 .wrap{{display:grid;grid-template-columns:240px minmax(0,1fr) 210px;max-width:1280px;margin:0 auto;gap:0}}
 nav{{padding:20px 16px;border-right:1px solid var(--line);position:sticky;top:50px;align-self:start;max-height:calc(100vh - 50px);overflow:auto}}
@@ -150,7 +150,7 @@ header input{{margin-left:16px;padding:6px 10px;border:1px solid var(--line);bor
 #res{{position:absolute;top:46px;left:120px;width:min(520px,90vw);background:var(--bg);border:1px solid var(--line);border-radius:8px;display:none;max-height:70vh;overflow:auto;box-shadow:0 8px 30px #0006}}
 #res a{{display:block;margin:0;padding:8px 12px;color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line);font-size:14px}}#res a small{{display:block;color:var(--mut)}}#res a:hover{{background:var(--panel)}}
 </style></head><body>
-<header><b>ccmod</b><span>build your own CapCut</span><input id="q" type="search" placeholder="Search docs" autocomplete="off"><div id="res"></div><a href="https://github.com/Pkp107/capcut-ccmod">GitHub</a></header>
+<header><img src="assets/logo.png" alt="" class="logo"><b>ccmod</b><span>build your own CapCut</span><input id="q" type="search" placeholder="Search docs" autocomplete="off"><div id="res"></div><a href="https://github.com/Pkp107/capcut-ccmod">GitHub</a></header>
 <div class="wrap"><nav>{nav}</nav><main>{body}</main><aside>{toc}</aside></div>
 <script>
 (function(){{var q=document.getElementById("q"),r=document.getElementById("res"),d=null;

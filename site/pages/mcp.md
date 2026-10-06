@@ -30,6 +30,9 @@ Restart the client; the tools appear as `ccmod_*`.
 | `ccmod_set_cover` `{cover_key, image_path}` | Use an image as a tile cover |
 | `ccmod_themes` | List themes + current |
 | `ccmod_theme_apply` `{id}` / `ccmod_theme_revert` | Restyle CapCut / go back |
+| `ccmod_create_blocks` | The building blocks for creating effects and transitions, with ranges |
+| `ccmod_create_effect` `{recipe}` | Create and install an effect from a recipe (no shader code); see [Creator](creator.html) |
+| `ccmod_create_transition` `{recipe}` | Same for a transition |
 | `ccmod_launch` / `ccmod_stop` | Start CapCut with ccmod (about a minute) / close it |
 
 ## Live tools (CapCut + ccmod running)

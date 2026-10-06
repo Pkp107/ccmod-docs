@@ -28,6 +28,8 @@ order: 20
 
 **Easing curves** (the `Ease` slider picks one of eight): linear, ease-in, ease-out, ease-in-out, cubic-in, cubic-out, bounce, back (overshoot).
 
+![Installed effects in the Loader](assets/loader-effects.png)
+
 ## Installing them
 
 ```bash

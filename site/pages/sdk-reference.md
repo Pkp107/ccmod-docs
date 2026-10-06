@@ -64,6 +64,7 @@ There are no other built-in events yet (no playhead or selection events; poll `c
 | `click(selector)` | `str` | clicks a live item by objectName |
 | `find_tab_row()` | `str | None` | address like `0x1f2e...` of the top tab row |
 | `inspect(type="", objectName="", limit=40)` | `dict` | live items matching a QML type prefix / objectName, as parsed JSON from the theme engine (`{"error": ...}` if unreadable). **Raises `RuntimeError` if the engine can't be injected (no editor open)**; takes about 0.5 s |
+| `panel(panel_id, title, widgets, on_change=None, x=80, y=80, width=280, parent=...)` | `Panel` | floating panel of CapCut-styled controls; see [UI toolkit](ui-toolkit.html) |
 | `themes()` | `list[dict]` | `id, name, description, preview, author, version` |
 | `apply_theme(id)` / `revert_theme()` | `str` | |
 
@@ -160,11 +161,19 @@ Tools are dropped automatically when the plugin unloads.
 | `path(name)` | `Path` | inside your folder; **raises `PermissionError` if the path escapes it** (`../x`). Create subfolders yourself |
 | `folder` | `Path` | `plugin-state/plugin-data/<plugin-id>/` |
 
+## ctx.render  (`render`)
+
+| Call | Returns | Notes |
+|---|---|---|
+| `agent(transport=None)` | `RenderAgent` | clock = the playhead when the plugin also has `engine`. See [Render agent](render-agent.html) |
+
 ## ctx.draft, ctx.builds, ctx.hooks
 
 | Call | Returns | Notes |
 |---|---|---|
 | `draft.save(project)` / `restore(project)` | `int` | snapshot / restore a project's draft files; the project is the draft folder name |
+| `draft.timeline(project)` | `Timeline` | open the project's timeline for editing; see [Timeline API](timeline-api.html) |
+| `draft.bake(timeline, clip_id, prop, formula, fps=30)` | `int` | bake a formula to keyframes; see [Expressions](expressions.html) |
 | `draft.format_of(project)` | `str | None` | the draft's format version |
 | `builds.installed()` | `list[dict]` | `{version, renders, path, note}` for each CapCut build on this PC |
 | `builds.preferred()` | `str | None` | version string ccmod will launch |

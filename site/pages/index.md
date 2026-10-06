@@ -30,10 +30,14 @@ order: 0
 | Change how CapCut looks | [Themes](themes.html) |
 | Let Claude or another AI drive CapCut | [MCP](mcp.html) |
 | Write my first plugin | [Your first plugin](first-plugin.html) |
+| Make an effect or transition with no code | [Creator](creator.html) |
 | Make my own effect | [Making effects](making-effects.html) |
 | Make my own transition | [Making transitions](making-transitions.html) |
 | Make my own theme | [Making themes](making-themes.html) |
-| Connect Blender or another program | [External apps](external-apps.html) |
+| Connect Blender, ffmpeg or any program | [External apps](external-apps.html) |
+| Edit clips and keyframes from code | [Timeline API](timeline-api.html), [Expressions](expressions.html) |
+| Echo, trails, live textures in an effect | [Render agent](render-agent.html) |
+| Build panels and controls inside CapCut | [UI toolkit](ui-toolkit.html) |
 | Look up every API call | [SDK reference](sdk-reference.html) |
 | Know what's possible vs After Effects | [Roadmap & After Effects gap](roadmap.html) |
 
