@@ -6,7 +6,7 @@ order: 10
 
 # The Loader
 
-`CCMODLoader.exe` is ccmod's desktop app. It is a front end over the same Python tools you can run by hand, so everything it does you can also script.
+`ccmodloader.exe` is ccmod's desktop app. It is a front end over the same Python tools you can run by hand, so everything it does you can also script.
 
 | Page | What it does |
 |---|---|

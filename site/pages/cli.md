@@ -13,7 +13,7 @@ python ccmod_run.py              # launch CapCut with ccmod, run until Ctrl+C
 python ccmod_run.py autostart    # start with Windows
 ```
 
-Environment: `CCMOD_CAPCUT_VERSION=9.2.0.3931` (prefix OK, for example `8.9`) selects a different CapCut build.
+Environment: `ccmod_capcut_version=9.2.0.3931` (prefix OK, for example `8.9`) selects a different CapCut build.
 
 ## SDK CLI
 

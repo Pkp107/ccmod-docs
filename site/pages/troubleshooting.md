@@ -23,7 +23,7 @@ order: 5
 | Plugin missing from the list | `python -m ccmod_sdk list` shows why it was skipped (manifest error, wrong CapCut version) |
 | `PermissionError` in a plugin | Add the namespace's permission to `plugin.json` |
 | `FileNotFoundError: template transition package not cached` | Apply any stock transition once in CapCut, then build again |
-| Blender render fails | Blender isn't found. Install it or set `CCMOD_BLENDER` to `blender.exe` |
+| Blender render fails | Blender isn't found. Install it or set `ccmod_blender` to `blender.exe` |
 | An auto-update removed 8.9.1 | `python ccversion.py restore 8.9.1` (needs a prior `backup`); `ccmod_run.py` also tries to restore it |
 
 ## Collecting information for a bug report

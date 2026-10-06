@@ -44,10 +44,10 @@ path = blender.render({"kind": "monkey", "color": "#ff8800", "seconds": 3, "out"
 self.ctx.media.import_file(path)
 ```
 
-`ccmod_sdk/blender.py` finds Blender (`CCMOD_BLENDER` env var, then `C:/Program Files/Blender Foundation/Blender*`), writes a small `bpy` job script, runs `blender --background --python job.py`, and returns the file. It exposes a **3D object** timeline button and an MCP tool `blender-bridge__render_3d` (kinds: monkey, torus, sphere, cube, cone, text).
+`ccmod_sdk/blender.py` finds Blender (`ccmod_blender` env var, then `C:/Program Files/Blender Foundation/Blender*`), writes a small `bpy` job script, runs `blender --background --python job.py`, and returns the file. It exposes a **3D object** timeline button and an MCP tool `blender-bridge__render_3d` (kinds: monkey, torus, sphere, cube, cone, text).
 
 !!! note "Status"
-    The job helpers and import are unit-tested. The Blender render itself hasn't been run end to end because Blender isn't installed on the dev PC. Install Blender (or set `CCMOD_BLENDER`) and report what happens.
+    The job helpers and import are unit-tested. The Blender render itself hasn't been run end to end because Blender isn't installed on the dev PC. Install Blender (or set `ccmod_blender`) and report what happens.
 
 ## Your own bridge: a template
 

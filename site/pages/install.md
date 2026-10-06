@@ -79,11 +79,11 @@ Or do it from the [Loader](loader.html), which is the friendlier way.
 ## 6. (Optional) Build the Loader
 
 ```bash
-cd bootstrapper/CCMODLoader
+cd bootstrapper/ccmodloader
 dotnet build -c Release
 ```
 
-The exe lands in `bin/Release/net8.0-windows/CCMODLoader.exe`. Pin a shortcut to it.
+The exe lands in `bin/Release/net8.0-windows/ccmodloader.exe`. Pin a shortcut to it.
 
 ## Verify
 
